@@ -1,10 +1,15 @@
 <?php
-    include_once "admin/helper/auth.php";
-    if(isset($_POST["login"])){
-        $username = escapePostParam($conn, "username");
-        $password = escapePostParam($conn, "password");
-        doLogin($username, $password);
-    }
+include_once "admin/helper/auth.php";
+session_start();
+if (hasSession('auth')) {
+  redirect('?route=admin');
+  return;
+}
+if (isset($_POST["login"])) {
+	$username = escapePostParam($conn, "username");
+	$password = escapePostParam($conn, "password");
+	doLogin($username, $password);
+}
 
 ?>
 <body class="off-canvas-sidebar">
@@ -44,7 +49,7 @@
     </nav>
     <div class="wrapper wrapper-full-page">
     <div class="page-header login-page header-filter" filter-color="black"
-         style="background-image: url('<?php echo(HOME_URL . "/admin/assets/img/login.jpg") ?>'); background-size: cover;
+         style="background-image: url('<?php echo (HOME_URL . "/admin/assets/img/login.jpg") ?>'); background-size: cover;
                  background-position: top center;">
         <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="container">
