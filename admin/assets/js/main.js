@@ -185,26 +185,49 @@ function setFormValidation(id) {
 }
 
 function loginDashBoard(){
-    $("#LoginValidation button").addEventListener("click", (event) => {
+    $("#LoginValidation button").on("click", (event) => {
         const $button = $("#LoginValidation button");
         $button.html("Loading...");
-        const usernname = $("#username").val();
-        const password = $("#examplePasswords").val();
-        $.ajax({
-            url: "http://localhost/BlogBasic/?route=login",
-            type: "POST",
-            data:{
-                userName: usernname,
-                passWord: password
-            },
-            success: function (data) {
-                console.log(data);
-            },
-            error: function () {
-
-            }
-        })
-
+        const username = $("#LoginValidation #userName").val();
+        const password = $("#LoginValidation #examplePasswords").val();
+       if(username !== "" && password !== ""){
+           $.ajax({
+               url: "?route=auth",
+               type: "POST",
+               data:{
+                   userName: username,
+                   password: password,
+                   checkLogin: true
+               },
+               dataType: "text",
+               success: function (data) {
+                   if(!data.includes("isLoggedIn")){
+                       $.notify({
+                           icon: "error",
+                           title: 'Login failed',
+                           message: "Wrong username or password! Try again"
+                       }, {
+                           type: "danger",
+                           timer: 2500,
+                           placement: {
+                               from: "top",
+                               align: "right"
+                           },
+                           allow_dismiss: true
+                       })
+                       $button.html("Login");
+                   } else {
+                       window.location.href="?route=admin";
+                   }
+               },
+               error: function () {
+                 $button.html("Login");
+               }
+           })
+       } else {
+           setFormValidation("#LoginValidation");
+           $button.html("Login");
+       }
     })
 }
 
@@ -214,6 +237,6 @@ $(document).ready(function() {
         // after 1000 ms we add the class animated to the login/register card
         $('.card').removeClass('card-hidden');
     }, 700);
-    setFormValidation("#LoginValidation");
+    loginDashBoard();
 });
 

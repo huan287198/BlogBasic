@@ -1,10 +1,5 @@
 <?php
-    include_once "admin/helper/auth.php";
-    if(isset($_POST["login"])){
-        $username = escapePostParam($conn, "username");
-        $password = escapePostParam($conn, "password");
-        doLogin($username, $password);
-    }
+
 
 ?>
 <body class="off-canvas-sidebar">
@@ -50,7 +45,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-                    <form class="form" method="POST" action="<?php echo "?route=login" ?>" id="LoginValidation">
+                    <form class="form" method="POST" action="<?php echo "?route=login" ?>" id="LoginValidation" onsubmit="return myFunction(event);">
                         <div class="card card-login card-hidden">
                             <div class="card-header card-header-rose text-center">
                                 <h4 class="card-title">Login</h4>
@@ -80,6 +75,8 @@
                             <div class="card-footer ml-auto mr-auto">
                                 <button type="submit" class="btn btn-rose" name="login">Login</button>
                             </div>
+
+
 
                         </div>
                     </form>
@@ -115,4 +112,10 @@
             </div>
         </footer>
     </div>
+        <script>
+            function myFunction(e) {
+                console.log('123123');
+                e.preventDefault();
+            }
+        </script>
 </body>

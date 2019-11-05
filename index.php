@@ -23,6 +23,9 @@ switch ($route) {
     case 'login':
         include './admin/core/Authentication/login.php';
         break;
+    case "auth":
+        include_once "admin/helper/auth.php";
+        break;
     case 'admin':
     default:
         include './admin/core/Authentication/admin.php';
