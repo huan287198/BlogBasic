@@ -6,13 +6,13 @@
         }
     }
 
-    function add($key, $value)
+    function addSession($key, $value)
     {
         initSession();
         $_SESSION[$key] = $value;
     }
 
-    function forget($key)
+    function forgetSession($key)
     {
         initSession();
         if (isset($_SESSION[$key])) {
@@ -20,15 +20,15 @@
         }
     }
 
-    function has($key)
+    function hasSession($key)
     {
         initSession();
         return isset($_SESSION[$key]);
 
     }
 
-    function get($key)
+    function getSession($key)
     {
         initSession();
-        return has($key) ? $_SESSION[$key] : "";
+        return hasSession($key) ? $_SESSION[$key] : "";
     }

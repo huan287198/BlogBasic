@@ -1,6 +1,5 @@
 <?php
 require_once("admin/configs/db.php");
-global $conf;
 function connect_db()
 {
     global $conf;
@@ -58,6 +57,14 @@ function fetch_assoc($conn, $sql = null, $type)
             }
         }
     }
+}
+
+function escapePostParam($conn, $key) {
+    return mysqli_real_escape_string($conn, $_POST[$key]);
+}
+
+function escapeGetParam($conn, $key) {
+    return mysqli_real_escape_string($conn, $_GET[$key]);
 }
 
 //// Hàm lấy ID cao nhất

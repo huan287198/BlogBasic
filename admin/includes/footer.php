@@ -1,10 +1,7 @@
-<?php require_once "admin/configs/general.php";
-?>
-
 
 <script src="<?php echo(HOME_URL . "admin/assets/js/core/jquery.min.js"); ?>"></script>
 <script src="<?php echo(HOME_URL . "admin/assets/js/core/popper.min.js"); ?>"></script>
-<script src="<?php echo(HOME_URL . "/assets/js/core/bootstrap-material-design.min.js"); ?>"></script>
+<script src="<?php echo(HOME_URL . "admin/assets/js/core/bootstrap-material-design.min.js"); ?>"></script>
 <script src="<?php echo(HOME_URL . "admin/assets/js/plugins/perfect-scrollbar.jquery.min.js"); ?>"></script>
 <!-- Plugin for the momentJs  -->
 
@@ -86,6 +83,10 @@
 
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 
+<?php
+$path = HOME_URL . "admin/assets/js/main.js";
+echo("<script src='$path'></script>");
 
-</body>
+?>
+
 </html>

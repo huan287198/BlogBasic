@@ -1,6 +1,4 @@
-<?php
-    require_once "admin/configs/general.php";
-?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,6 +18,6 @@
     <link href="<?php echo(HOME_URL . "admin/assets/demo/demo.css") ?>" rel="stylesheet" />
 
 </head>
-<body>
+
 
 
