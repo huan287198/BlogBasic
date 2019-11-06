@@ -26,7 +26,7 @@
                         </a>
                     </li>
                     <li class="nav-item  active ">
-                        <a href="login.html" class="nav-link">
+                        <a href="<?php  echo '?route=login' ?>" class="nav-link">
                             <i class="material-icons">fingerprint</i> Login
                         </a>
                     </li>
@@ -61,7 +61,7 @@
                             <div class="card-body ">
                                 <p class="card-description text-center">Or Be Classical</p>
                                 <div class="form-group">
-                                    <label for="exampleEmails" class="bmd-label-floating"> User Name *</label>
+                                    <label for="userName" class="bmd-label-floating"> User Name *</label>
                                     <input type="text" class="form-control" id="userName" required="true" name="username">
                                 </div>
                                 <div class="form-group">

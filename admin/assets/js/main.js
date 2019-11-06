@@ -289,4 +289,5 @@ $(document).ready(function() {
         $('.card').removeClass('card-hidden');
     }, 700);
     loginDashBoard();
+    setFormValidation("#RegisterForm");
 });

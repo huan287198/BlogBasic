@@ -1,5 +1,9 @@
 
-<?php echo(getSession("login"))  ?>
+<?php
+    if(isset($_GET["action"])){
+        include_once "admin/core/Authentication/logout.php";
+    }
+?>
 
 <div class="sidebar" data-color="purple" data-background-color="black"
      data-image="<?php echo(HOME_URL . "admin/assets/img/sidebar-1.jpg"); ?>">
@@ -9,10 +13,10 @@
       Tip 2: you can also add an image using data-image tag
   -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="<?php echo '?route=admin' ?>" class="simple-text logo-mini">
             CT
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="<?php echo '?route=admin' ?>" class="simple-text logo-normal">
             Creative Tim
         </a>
     </div>
@@ -22,7 +26,7 @@
                 <img src="<?php echo(HOME_URL . "admin/assets/img/faces/avatar.jpg"); ?>"/>
             </div>
             <div class="user-info">
-                <a data-toggle="collapse" href="dashboard.html#collapseExample" class="username">
+                <a data-toggle="collapse"  class="username">
               <span>
                 Tania Andrew
                 <b class="caret"></b>
@@ -43,7 +47,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo '?route=logout'; ?>">
+                            <a class="nav-link" href="<?php echo '?route=admin&action=logout'; ?>">
                                 <span class="sidebar-mini"> LO </span>
                                 <span class="sidebar-normal"> Logout </span>
                             </a>
