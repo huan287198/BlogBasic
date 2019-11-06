@@ -31,19 +31,20 @@ function doLogout()
 
 function registerAccount($user, $email, $password)
 {
-    $sql = "INSERT INTO user (id, email, mobile, user_name, password, position, avatar, created_at, updated_at) VALUES (NULL, '$email', NULL, '$user', 'MD5($password)', '1', '', CURRENT_TIME(), CURRENT_TIME())";
-    if(isValidRegister($user, $email)){
-        return query($sql);
-    }
-    else return false;
+
+    $sql = "INSERT INTO user (id, email, mobile, user_name, password, position, avatar, created_at, updated_at) VALUES (NULL, '$email', NULL, '$user', md5('$password'), '1', '', CURRENT_TIME(), CURRENT_TIME())";
+
+    if (isValidRegister($user, $email)) {
+        query($sql);
+        return "1";
+    } else return "0";
 }
 
-function isValidRegister($user, $email){
+function isValidRegister($user, $email)
+{
     $sql = "Select * from user where user_name='$user' or email= '$email'";
     $row = num_rows($sql);
-    var_dump($row);
-    die;
-    if($row > 1){
+    if ($row >= 1) {
         return false;
     }
     return true;

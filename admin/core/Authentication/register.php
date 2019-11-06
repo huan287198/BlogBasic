@@ -2,11 +2,13 @@
 include_once "admin/helper/auth.php";
 $show= "";
 if (isset($_POST["register"])) {
-    $user = escapePostParam($conn, $_POST["username"]);
-    $email = escapePostParam($conn, $_POST["email"]);
-    $pass = escapePostParam($conn, $_POST["password"]);
-    var_dump($user, $email, $pass);
-    if (registerAccount($user, $email, $pass)) {
+    $user =  $_POST["user_register"];
+    $email =  $_POST["email_register"];
+    $pass =  $_POST["password_register"];
+
+
+    if (registerAccount($user, $email, $pass) == "1") {
+        addSession("auth", md5($pass));
         redirect("?route=admin");
     } else {
         $show = "show";
@@ -52,8 +54,8 @@ if (isset($_POST["register"])) {
                     <div class="card card-signup">
                         <h2 class="card-title text-center">Register</h2>
                         <div class="card-body">
-                            <div class="alert alert-warning alert-dismissible fade <?php echo($show); ?> " role="alert" >
-                                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                            <div class="alert alert-danger alert-dismissible fade <?php echo($show); ?> " role="alert" >
+                                <strong>Register failed!</strong> Your email or username is already yet!!
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -114,7 +116,6 @@ if (isset($_POST["register"])) {
                                             method="POST"
                                             action="<?php echo '?route=register' ?>"
                                             id="RegisterForm"
-
                                     >
                                         <div class="form-group ">
                                             <div class="input-group">
@@ -124,8 +125,7 @@ if (isset($_POST["register"])) {
                                                     </span>
                                                 </div>
                                                 <input type="text" class="form-control" id="userName" required="true"
-                                                       name="username" placeholder="User Name..."
-                                                       value="<?php echo($_POST["username"] ?? "") ?>"
+                                                       name="user_register" placeholder="User Name..."
                                                 >
 
                                             </div>
@@ -140,11 +140,10 @@ if (isset($_POST["register"])) {
                                                 <input
                                                         type="text"
                                                         class="form-control"
-                                                        name="email"
+                                                        name="email_register"
                                                         placeholder="Email..."
                                                         required="true"
                                                         email="true"
-                                                        value="<?php echo($_POST["email"] ?? "") ?>"
                                                 />
                                             </div>
                                         </div>
@@ -157,11 +156,11 @@ if (isset($_POST["register"])) {
                                                 </div>
                                                 <input
                                                         type="password"
-                                                        name="password"
+                                                        name="password_register"
                                                         placeholder="Password..."
                                                         class="form-control"
                                                         required="true"
-                                                        value="<?php echo($_POST["password"] ?? "") ?>"
+
                                                 />
                                             </div>
                                         </div>

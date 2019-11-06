@@ -14,10 +14,10 @@
   -->
     <div class="logo">
         <a href="<?php echo '?route=admin' ?>" class="simple-text logo-mini">
-            CT
+            DL
         </a>
         <a href="<?php echo '?route=admin' ?>" class="simple-text logo-normal">
-            Creative Tim
+            My Blog
         </a>
     </div>
     <div class="sidebar-wrapper">
@@ -35,15 +35,9 @@
                 <div class="collapse" id="collapseExample">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="<?php echo "?route=my_profile" ?>">
                                 <span class="sidebar-mini"> MP </span>
                                 <span class="sidebar-normal"> My Profile </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard.html#">
-                                <span class="sidebar-mini"> EP </span>
-                                <span class="sidebar-normal"> Edit Profile </span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -64,7 +58,7 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" data-toggle="collapse" href="dashboard.html#pagesExamples">
+                <a class="nav-link"  href="dashboard.html#pagesExamples">
                     <i class="material-icons">image</i>
                     <p> Category
                     </p>
@@ -72,7 +66,7 @@
 
             </li>
             <li class="nav-item ">
-                <a class="nav-link" data-toggle="collapse" href="dashboard.html#componentsExamples">
+                <a class="nav-link"  href="dashboard.html#componentsExamples">
                     <i class="material-icons">apps</i>
                     <p> Posts </p>
                 </a>
