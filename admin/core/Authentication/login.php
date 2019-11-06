@@ -1,17 +1,4 @@
-<?php
-include_once "admin/helper/auth.php";
-session_start();
-if (hasSession('auth')) {
-  redirect('?route=admin');
-  return;
-}
-if (isset($_POST["login"])) {
-	$username = escapePostParam($conn, "username");
-	$password = escapePostParam($conn, "password");
-	doLogin($username, $password);
-}
 
-?>
 <body class="off-canvas-sidebar">
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
         <div class="container">
@@ -55,7 +42,7 @@ if (isset($_POST["login"])) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-                    <form class="form" method="POST" action="<?php echo "?route=login" ?>" id="LoginValidation">
+                    <form class="form" method="POST" action="<?php echo "?route=login" ?>" id="LoginValidation" onsubmit="return myFunction(event);">
                         <div class="card card-login card-hidden">
                             <div class="card-header card-header-rose text-center">
                                 <h4 class="card-title">Login</h4>
@@ -85,6 +72,8 @@ if (isset($_POST["login"])) {
                             <div class="card-footer ml-auto mr-auto">
                                 <button type="submit" class="btn btn-rose" name="login">Login</button>
                             </div>
+
+
 
                         </div>
                     </form>
@@ -120,4 +109,10 @@ if (isset($_POST["login"])) {
             </div>
         </footer>
     </div>
+        <script>
+            function myFunction(e) {
+                console.log('123123');
+                e.preventDefault();
+            }
+        </script>
 </body>

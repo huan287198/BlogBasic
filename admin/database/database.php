@@ -17,8 +17,9 @@ function close($conn)
 }
 
 // Hàm truy vấn
-function query($conn, $sql)
+function query($sql)
 {
+    $conn = connect_db();
     if ($conn)
     {
         return mysqli_query($conn, $sql);
@@ -26,8 +27,9 @@ function query($conn, $sql)
 }
 
 // Hàm đếm số hàng
-function num_rows($conn, $sql)
+function num_rows($sql)
 {
+    $conn = connect_db();
 
     $query = mysqli_query($conn, $sql);
     if ($query) {
@@ -38,8 +40,9 @@ function num_rows($conn, $sql)
 }
 
 // Hàm lấy dữ liệu
-function fetch_assoc($conn, $sql = null, $type)
+function fetch_assoc($sql = null, $type)
 {
+    $conn = connect_db();
     $data = [];
     if ($conn) {
         $query = mysqli_query($conn, $sql);

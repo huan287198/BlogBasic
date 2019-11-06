@@ -15,19 +15,19 @@ include './admin/includes/header.php';
 $route = $_GET['route'] ?? 'route';
 
 switch ($route) {
-case 'register':
-	include './admin/core/Authentication/register.php';
-  break;
-case 'logout':
-	include './admin/core/Authentication/logout.php';
-	break;
-case 'login':
-	include './admin/core/Authentication/login.php';
-	break;
-case 'admin':
-default:
-	include './admin/core/Authentication/admin.php';
-	break;
+    case 'register':
+        include './admin/core/Authentication/register.php';
+        break;
+    case 'login':
+        include './admin/core/Authentication/login.php';
+        break;
+    case "auth":
+        include_once "admin/helper/auth.php";
+        break;
+    case 'admin':
+    default:
+        include './admin/core/Authentication/admin.php';
+        break;
 }
 
 include './admin/includes/footer.php';
