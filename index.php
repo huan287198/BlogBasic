@@ -3,12 +3,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
 include_once "admin/configs/general.php";
 include_once "admin/helper/session.php";
 include_once "admin/helper/redirect.php";
 include_once "admin/database/database.php";
-
 
 $conn = connect_db();
 

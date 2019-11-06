@@ -1,5 +1,5 @@
 
-<?php  ?>
+<?php echo(getSession("login"))  ?>
 
 <div class="sidebar" data-color="purple" data-background-color="black"
      data-image="<?php echo(HOME_URL . "admin/assets/img/sidebar-1.jpg"); ?>">
@@ -31,7 +31,7 @@
                 <div class="collapse" id="collapseExample">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.html#">
+                            <a class="nav-link" href="#">
                                 <span class="sidebar-mini"> MP </span>
                                 <span class="sidebar-normal"> My Profile </span>
                             </a>
@@ -43,9 +43,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.html#">
-                                <span class="sidebar-mini"> S </span>
-                                <span class="sidebar-normal"> Settings </span>
+                            <a class="nav-link" href="<?php echo '?route=logout'; ?>">
+                                <span class="sidebar-mini"> LO </span>
+                                <span class="sidebar-normal"> Logout </span>
                             </a>
                         </li>
                     </ul>

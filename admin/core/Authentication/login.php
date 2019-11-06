@@ -1,7 +1,4 @@
-<?php
 
-
-?>
 <body class="off-canvas-sidebar">
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
         <div class="container">
@@ -39,7 +36,7 @@
     </nav>
     <div class="wrapper wrapper-full-page">
     <div class="page-header login-page header-filter" filter-color="black"
-         style="background-image: url('<?php echo(HOME_URL . "/admin/assets/img/login.jpg") ?>'); background-size: cover;
+         style="background-image: url('<?php echo (HOME_URL . "/admin/assets/img/login.jpg") ?>'); background-size: cover;
                  background-position: top center;">
         <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="container">
